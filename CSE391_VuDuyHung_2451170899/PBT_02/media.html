@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Multimedia - Giới thiệu Sản phẩm</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        /* SVG LOGO */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .logo-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        svg {
+            max-width: 200px;
+            height: auto;
+        }
+
+        /* GALLERY - HÌNH SẢN PHẨM */
+        .gallery-section h2,
+        .video-section h2,
+        .audio-section h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        figure {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        figure:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        figure img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        figcaption {
+            padding: 15px;
+            background: #f9f9f9;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        figcaption strong {
+            color: #667eea;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* VIDEO SECTION */
+        .video-section {
+            margin-bottom: 50px;
+        }
+
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .video-item {
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .video-item h3 {
+            color: #333;
+            font-size: 16px;
+            padding: 15px;
+            background: #f5f5f5;
+            margin-top: 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            border-radius: 8px;
+            background: #000;
+        }
+
+        /* AUDIO SECTION */
+        .audio-section {
+            margin-bottom: 30px;
+        }
+
+        .audio-container {
+            background: #f5f5f5;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .audio-container h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        audio {
+            width: 100%;
+            outline: none;
+        }
+
+        .audio-info {
+            color: #666;
+            font-size: 13px;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-container {
+                grid-template-columns: 1fr;
+            }
+
+            iframe {
+                height: 250px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #0c5aa0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Trang Multimedia - Giới thiệu Sản phẩm</h1>
+            <p>Khám phá các sản phẩm công nghệ, video quảng cáo & âm thanh</p>
+        </header>
+
+        <div class="content">
+            <!-- SVG LOGO SECTION -->
+            <div class="logo-section">
+                <h2>🎨 Logo công ty (SVG inline)</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                    <!-- Vòng tròn lớn -->
+                    <circle cx="100" cy="100" r="95" fill="#667eea" stroke="#764ba2" stroke-width="3"/>
+                    
+                    <!-- Hình vuông bên trong -->
+                    <rect x="50" y="50" width="100" height="100" fill="#764ba2" rx="10"/>
+                    
+                    <!-- Hình tròn trắng giữa -->
+                    <circle cx="100" cy="100" r="30" fill="white"/>
+                    
+                    <!-- Chữ "E-Shop" -->
+                    <text x="100" y="110" font-size="24" font-weight="bold" text-anchor="middle" fill="#667eea" font-family="Arial">E</text>
+                    
+                    <!-- Các đường trang trí -->
+                    <line x1="70" y1="30" x2="130" y2="30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="70" y1="170" x2="130" y2="170" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <p style="margin-top: 15px; color: #666; font-size: 14px;">
+                    ✨ Đây là SVG inline - vẽ trực tiếp trên HTML, không cần file riêng
+                </p>
+            </div>
+
+            <!-- GALLERY - HÌNH SẢN PHẨM -->
+            <div class="gallery-section">
+                <h2>📸 Thư viện hình sản phẩm</h2>
+                <p class="info-box">
+                    ℹ️ Tất cả ảnh dùng <code>loading="lazy"</code> - chỉ load khi user scroll đến gần. 
+                    Sử dụng <code>&lt;figure&gt;</code> + <code>&lt;figcaption&gt;</code> để mô tả sản phẩm.
+                </p>
+
+                <div class="gallery-grid">
+                    <!-- Ảnh 1 -->
+                    <figure>
+                        <img 
+                            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80" 
+                            alt="Apple Watch Series 9 Titanium - Đồng hồ thông minh cao cấp với màn hình OLED"
+                            loading="lazy"
+                        >
+                        <figcaption>
+                            <strong>Apple Watch Series 9 Titanium</strong>
+                            ⭐⭐⭐⭐⭐ (2,543 đánh giá)<br>
+                            Đồng hồ thông minh cao cấp, pin kéo dài 18 giờ, tích hợp GPS và cảm biến tim.
+                        </figcaption>
+                    </figure>
+
+                    <!-- Ảnh 2 -->
+                    <figure>
+                        <img 
+                            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" 
+                            alt="Tai nghe Bluetooth Premium - Hỗ trợ Noise Cancellation, 30 giờ pin"
+                            loading="lazy"
+                        >
+                        <figcaption>
+                            <strong>Tai nghe Bluetooth Premium</strong>
+                            ⭐⭐⭐⭐⭐ (1,892 đánh giá)<br>
+                            Hỗ trợ Noise Cancellation, pin 30 giờ, thiết kế nhôm cao cấp.
+                        </figcaption>
+                    </figure>
+
+                    <!-- Ảnh 3 -->
+                    <figure>
+                        <img 
+                            src="https://images.unsplash.com/photo-1606841837239-c5a1a8a07af7?w=400&q=80" 
+                            alt="Laptop Gaming ROG 4060 - RTX 4060, i7-13700H, 16GB RAM, 1TB SSD"
+                            loading="lazy"
+                        >
+                        <figcaption>
+                            <strong>Laptop Gaming ROG RTX 4060</strong>
+                            ⭐⭐⭐⭐⭐ (734 đánh giá)<br>
+                            i7-13700H, RTX 4060, 16GB RAM, 1TB SSD, màn hình 165Hz.
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <!-- VIDEO SECTION -->
+            <div class="video-section">
+                <h2>🎥 Video quảng cáo & Demo</h2>
+                <p class="info-box">
+                    ℹ️ Sử dụng <code>&lt;iframe&gt;</code> để nhúng YouTube và <code>&lt;video&gt;</code> 
+                    tag với nhiều <code>&lt;source&gt;</code> format khác nhau.
+                </p>
+
+                <div class="video-container">
+                    <!-- YouTube Video -->
+                    <div class="video-item">
+                        <h3>📺 Video YouTube (Iframe)</h3>
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <!-- HTML5 Video Tag -->
+                    <div class="video-item">
+                        <h3>🎬 Video HTML5 (Tag)</h3>
+                        <video 
+                            controls 
+                            poster="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&q=80"
+                            style="width: 100%; height: 300px; background: #000;"
+                        >
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            <source src="https://www.w3schools.com/html/mov_bbb.webm" type="video/webm">
+                            <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                            Trình duyệt của bạn không hỗ trợ video HTML5.
+                        </video>
+                    </div>
+                </div>
+
+                <p style="font-size: 13px; color: #666; margin-top: 15px;">
+                    <strong>💡 Ghi chú:</strong> Video HTML5 cung cấp 3 format (MP4, WebM, OGG) để đảm bảo 
+                    tương thích trên mọi browser. Poster hiển thị ảnh trước khi play video.
+                </p>
+            </div>
+
+            <!-- AUDIO SECTION -->
+            <div class="audio-section">
+                <h2>🎵 Audio - Nhạc nền giới thiệu</h2>
+                <div class="audio-container">
+                    <h3>🎶 Nhạc nền - Lofi Chill Beats</h3>
+                    <audio controls style="width: 100%;">
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                        Trình duyệt của bạn không hỗ trợ audio HTML5.
+                    </audio>
+                    <p class="audio-info">
+                        🎧 Nhạc nền giới thiệu sản phẩm - Sử dụng thẻ <code>&lt;audio&gt;</code> với controls
+                    </p>
+                </div>
+            </div>
+
+            <!-- SUMMARY -->
+            <div style="margin-top: 40px; padding: 20px; background: #f0f4ff; border-radius: 8px; border-left: 4px solid #667eea;">
+                <h3 style="color: #333; margin-bottom: 10px;">✅ Trang này sử dụng:</h3>
+                <ul style="margin-left: 20px; color: #555; font-size: 14px; line-height: 1.8;">
+                    <li>✓ <strong>3 ảnh sản phẩm</strong> dùng <code>&lt;figure&gt;</code> + <code>&lt;figcaption&gt;</code></li>
+                    <li>✓ <strong>loading="lazy"</strong> trên tất cả ảnh để tối ưu hiệu năng</li>
+                    <li>✓ <strong>1 video YouTube</strong> nhúng qua <code>&lt;iframe&gt;</code></li>
+                    <li>✓ <strong>1 video HTML5</strong> với controls, poster, 3 source format (mp4, webm, ogg)</li>
+                    <li>✓ <strong>1 audio</strong> tag với controls</li>
+                    <li>✓ <strong>SVG inline</strong> - Logo vẽ trực tiếp trên HTML</li>
+                    <li>✓ <strong>Responsive design</strong> - max-width: 100%, height: auto</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
