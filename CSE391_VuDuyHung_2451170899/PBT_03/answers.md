@@ -524,3 +524,79 @@ body { font-size: 16px; color: #333; }
 4. **!important**: Thắng tất cả (nhưng KHÔNG nên dùng)
 5. **CSS mục tiêu:** Để tính cascade đúng, cần hiểu rõ structure HTML + specificity
 
+---
+
+## PHẦN B — THỰC HÀNH CODE
+
+### Bài B3 (15đ) — Specificity Battle
+
+**HTML Element:**
+```html
+<p id="demo" class="text highlight">Hello World</p>
+```
+
+**10 CSS Rules (từ LOW đến HIGH Specificity):**
+
+| STT | CSS Rule | Specificity | Màu |
+|-----|----------|-------------|-----|
+| 1 | `* { color: black; }` | (0, 0, 0) | Black |
+| 2 | `p { color: navy; }` | (0, 0, 1) | Navy |
+| 3 | `.text { color: blue; }` | (0, 1, 0) | Blue |
+| 4 | `.highlight { color: purple; }` | (0, 1, 0) | Purple |
+| 5 | `p.text { color: cyan; }` | (0, 1, 1) | Cyan |
+| 6 | `.text.highlight { color: lime; }` | (0, 2, 0) | Lime |
+| 7 | `p.text.highlight { color: red; }` | (0, 2, 1) | Red |
+| 8 | `#demo { color: orange; }` | (1, 0, 0) | Orange |
+| 9 | `#demo.text { color: gold; }` | (1, 1, 0) | Gold |
+| 10 | `#demo.text.highlight { color: green; }` | **(1, 2, 0) - WINNER!** | **GREEN** |
+
+---
+
+**1. Element cuối cùng hiển thị màu gì?**
+
+- **Đáp án: GREEN** (từ rule #10)
+- **Tại sao:** Rule #10 có specificity cao nhất (1, 2, 0)
+- **So sánh specificity:** (a, b, c) = (ID count, class count, element count)
+  - Rule #10: 1 ID + 2 classes + 0 elements = (1, 2, 0) → **THẮNG**
+  - Rule #9: 1 ID + 1 class = (1, 1, 0) → Thấp hơn
+  - Rule #8: 1 ID = (1, 0, 0) → Thấp hơn
+  - Các rule khác không có ID → Tất cả thấp hơn
+
+---
+
+**2. Giải thích quá trình:**
+
+- Tính specificity theo thứ tự: **ID → class → element**
+- Nếu ID khác nhau, element có ID cao hơn sẽ thắng (không cần so sánh class/element)
+- Nếu ID bằng nhau, so sánh class; nếu class cũng bằng, so sánh element
+- **Thứ tự CSS file KHÔNG quan trọng** nếu specificity khác
+
+---
+
+**3. Nếu thay đổi thứ tự CSS rules, kết quả có đổi không?**
+
+**Câu trả lời: KHÔNG**
+
+- Rule #10 vẫn được áp dụng dù nó ở dòng 1 hay dòng cuối CSS file
+- Vì specificity cao hơn, nó luôn "thắng" các rule khác
+- **Ngoại lệ:** Chỉ khi 2 rules có specificity BẰNG NHAU, thứ tự CSS mới quan trọng
+
+**Ví dụ - Hai rules cùng specificity:**
+```css
+.text.highlight { color: red; }      /* Rule A */
+.text.highlight { color: blue; }     /* Rule B - sẽ override Rule A */
+```
+→ Kết quả: BLUE (vì Rule B viết sau)
+
+---
+
+**4. Kết luận - Best Practices:**
+
+- ✅ Dùng class selectors thay vì ID (dễ override)
+- ❌ Tránh dùng ID selector quá nhiều (khó maintain)
+- ❌ Tránh dùng `!important` (phá vỡ cascade)
+- ✅ Hiểu rõ specificity giúp debug CSS nhanh hơn
+- ✅ Khi multiple rules có specificity giống nhau, viết rule "đặc biệt" ở cuối file
+
+---
+

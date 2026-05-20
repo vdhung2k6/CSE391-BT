@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specificity Battle - CSS Cascade</title>
+    <link rel="stylesheet" href="specificity.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚔️ Specificity Battle - CSS Cascade War</h1>
+            <p>10 CSS rules khác nhau cùng target 1 element</p>
+        </header>
+
+        <main>
+            <section class="demo-section">
+                <h2>🎯 Element bị "tấn công" bởi 10 CSS rules:</h2>
+                
+                <div class="target-box">
+                    <p id="demo" class="text highlight">Hello World</p>
+                </div>
+
+                <div class="info-box">
+                    <p>
+                        <strong>Element:</strong> <code>&lt;p id="demo" class="text highlight"&gt;Hello World&lt;/p&gt;</code>
+                    </p>
+                    <p>
+                        <strong>Mục đích:</strong> Chứng minh specificity quyết định rule nào được áp dụng cuối cùng.
+                    </p>
+                </div>
+            </section>
+
+            <section class="rules-section">
+                <h2>📋 10 CSS Rules (từ LOW → HIGH Specificity):</h2>
+
+                <table class="rules-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 5%;">STT</th>
+                            <th style="width: 45%;">CSS Rule</th>
+                            <th style="width: 20%;">Specificity</th>
+                            <th style="width: 25%;">Màu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rule 1: Universal selector -->
+                        <tr>
+                            <td>1</td>
+                            <td><code>* { color: black; }</code></td>
+                            <td><span class="spec-low">(0, 0, 0)</span></td>
+                            <td style="background: #000; color: white;">🔵 Black</td>
+                        </tr>
+
+                        <!-- Rule 2: Element selector -->
+                        <tr>
+                            <td>2</td>
+                            <td><code>p { color: navy; }</code></td>
+                            <td><span class="spec-low">(0, 0, 1)</span></td>
+                            <td style="background: #000080; color: white;">🔵 Navy</td>
+                        </tr>
+
+                        <!-- Rule 3: Single class selector -->
+                        <tr>
+                            <td>3</td>
+                            <td><code>.text { color: blue; }</code></td>
+                            <td><span class="spec-mid">(0, 1, 0)</span></td>
+                            <td style="background: #0000ff; color: white;">🔵 Blue</td>
+                        </tr>
+
+                        <!-- Rule 4: Single class selector (another class) -->
+                        <tr>
+                            <td>4</td>
+                            <td><code>.highlight { color: purple; }</code></td>
+                            <td><span class="spec-mid">(0, 1, 0)</span></td>
+                            <td style="background: #800080; color: white;">🟣 Purple</td>
+                        </tr>
+
+                        <!-- Rule 5: Element + class -->
+                        <tr>
+                            <td>5</td>
+                            <td><code>p.text { color: cyan; }</code></td>
+                            <td><span class="spec-mid">(0, 1, 1)</span></td>
+                            <td style="background: #00ffff; color: #000;">🔵 Cyan</td>
+                        </tr>
+
+                        <!-- Rule 6: Two classes -->
+                        <tr>
+                            <td>6</td>
+                            <td><code>.text.highlight { color: lime; }</code></td>
+                            <td><span class="spec-mid">(0, 2, 0)</span></td>
+                            <td style="background: #00ff00; color: #000;">🟢 Lime</td>
+                        </tr>
+
+                        <!-- Rule 7: Element + two classes -->
+                        <tr>
+                            <td>7</td>
+                            <td><code>p.text.highlight { color: red; }</code></td>
+                            <td><span class="spec-high">(0, 2, 1)</span></td>
+                            <td style="background: #ff0000; color: white;">🔴 Red</td>
+                        </tr>
+
+                        <!-- Rule 8: ID selector -->
+                        <tr>
+                            <td>8</td>
+                            <td><code>#demo { color: orange; }</code></td>
+                            <td><span class="spec-high">(1, 0, 0)</span></td>
+                            <td style="background: #ffa500; color: white;">🟠 Orange</td>
+                        </tr>
+
+                        <!-- Rule 9: ID + class -->
+                        <tr>
+                            <td>9</td>
+                            <td><code>#demo.text { color: gold; }</code></td>
+                            <td><span class="spec-high">(1, 1, 0)</span></td>
+                            <td style="background: #ffd700; color: #000;">🟡 Gold</td>
+                        </tr>
+
+                        <!-- Rule 10: ID + two classes (WINNER!) -->
+                        <tr class="winner">
+                            <td>10</td>
+                            <td><code>#demo.text.highlight { color: green; }</code></td>
+                            <td><span class="spec-winner">(1, 2, 0)</span></td>
+                            <td style="background: #008000; color: white;">🟢 <strong>Green (WINNER!)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="result-section">
+                <h2>🏆 Kết quả:</h2>
+                
+                <div class="result-box">
+                    <p><strong>Element "Hello World" hiển thị:</strong></p>
+                    <p class="color-result" id="demo" class="text highlight">
+                        Màu GREEN (từ rule #10: #demo.text.highlight)
+                    </p>
+                </div>
+
+                <div class="explanation-box">
+                    <h3>💡 Giải thích:</h3>
+                    <ul>
+                        <li><strong>Rule #10 thắng vì:</strong> Có specificity cao nhất (1, 2, 0)</li>
+                        <li><strong>Specificity so sánh thứ tự:</strong>
+                            <ol>
+                                <li>ID selectors (a) - cao nhất</li>
+                                <li>Class selectors (b) - thứ hai</li>
+                                <li>Element selectors (c) - thấp nhất</li>
+                            </ol>
+                        </li>
+                        <li><strong>So sánh:</strong> Rule #10 (1,2,0) > Rule #9 (1,1,0) > Rule #8 (1,0,0) > Rule #7 (0,2,1) > ...</li>
+                        <li><strong>Cascade logic:</strong> Khi multiple rules áp dụng, rule có specificity cao nhất thắng</li>
+                        <li><strong>Thứ tự trong CSS file:</strong> KHÔNG quan trọng nếu specificity khác nhau</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="order-test-section">
+                <h2>🔄 Thay đổi thứ tự CSS rules - Kết quả có đổi không?</h2>
+                
+                <div class="info-box">
+                    <p><strong>✅ Kết luận:</strong> KHÔNG thay đổi!</p>
+                    <p>
+                        Vì specificity của rule #10 (1,2,0) luôn cao hơn các rule khác, 
+                        dù rule #10 ở dòng 1 hay dòng cuối cùng trong CSS file, 
+                        nó vẫn luôn được áp dụng (vẫn hiển thị GREEN).
+                    </p>
+                    <p>
+                        <strong>Ngoại lệ:</strong> Chỉ khi 2 rules có specificity BẰNG NHAU thì thứ tự CSS mới quan trọng 
+                        (rule được viết sau sẽ override rule trước).
+                    </p>
+                </div>
+
+                <h3>Ví dụ - 2 rules cùng specificity:</h3>
+                <div class="code-box">
+                    <p><code>.text.highlight { color: red; }</code></p>
+                    <p><code>.text.highlight { color: blue; }</code></p>
+                    <p>→ Kết quả: BLUE (vì rule sau override rule trước)</p>
+                </div>
+            </section>
+
+            <section class="tips-section">
+                <h2>🎓 Tips & Best Practices:</h2>
+                
+                <div class="tip">
+                    <strong>1. Tối ưu Specificity:</strong>
+                    <p>Đừng dùng ID selector quá nhiều. Thích dùng class selectors để dễ override khi cần.</p>
+                </div>
+
+                <div class="tip">
+                    <strong>2. Tránh !important:</strong>
+                    <p>
+                        <code>!important</code> là cách "phá vỡ" cascade. 
+                        Nó làm CSS khó maintain. Chỉ dùng khi thật cần thiết.
+                    </p>
+                </div>
+
+                <div class="tip">
+                    <strong>3. Thứ tự CSS file:</strong>
+                    <p>
+                        Nếu 2 rules có specificity bằng nhau, rule sau sẽ override rule trước. 
+                        Vì vậy hãy viết CSS cụ thể/đặc biệt ở cuối.
+                    </p>
+                </div>
+
+                <div class="tip">
+                    <strong>4. Cascade Diagram:</strong>
+                    <p>
+                        Tính toán specificity: 
+                        <strong style="background: #fff3cd; padding: 2px 6px; border-radius: 3px;">
+                            (ID, class, element) = (a, b, c)
+                        </strong>
+                    </p>
+                </div>
+            </section>
+
+            <section class="devtools-section">
+                <h2>🔧 Sử dụng DevTools để kiểm chứng:</h2>
+                <ol>
+                    <li>Mở DevTools (F12) → Inspector (Ctrl+Shift+C)</li>
+                    <li>Click vào element "Hello World"</li>
+                    <li>Tab "Styles" sẽ hiển thị tất cả CSS rules áp dụng</li>
+                    <li>Rules bị "strike-through" là những rules bị override</li>
+                    <li>Rule hiển thị bình thường (không strike-through) là rule được áp dụng cuối cùng</li>
+                </ol>
+                <p style="color: #e74c3c; font-weight: 600; margin-top: 15px;">
+                    💡 Hãy thử! Bạn sẽ thấy rule #10 (#demo.text.highlight) được áp dụng.
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Hiểu rõ CSS Specificity giúp bạn debug CSS issues nhanh hơn! 🚀</p>
+        </footer>
+    </div>
+</body>
+</html>

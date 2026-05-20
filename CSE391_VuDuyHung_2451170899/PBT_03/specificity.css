@@ -1,0 +1,457 @@
+/* ============================================ */
+/* 10 CSS RULES - SPECIFICITY BATTLE */
+/* ============================================ */
+
+/* RULE 1: Universal selector */
+/* Specificity: (0, 0, 0) - Thấp nhất */
+* {
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+/* RULE 2: Element selector */
+/* Specificity: (0, 0, 1) */
+p {
+    color: navy;
+    font-size: 16px;
+}
+
+/* RULE 3: Single class selector */
+/* Specificity: (0, 1, 0) */
+.text {
+    color: blue;
+    font-weight: 500;
+}
+
+/* RULE 4: Single class selector (another class) */
+/* Specificity: (0, 1, 0) */
+.highlight {
+    color: purple;
+    font-style: italic;
+}
+
+/* RULE 5: Element + class selector */
+/* Specificity: (0, 1, 1) */
+p.text {
+    color: cyan;
+    text-decoration: underline;
+}
+
+/* RULE 6: Two class selectors */
+/* Specificity: (0, 2, 0) */
+.text.highlight {
+    color: lime;
+    font-weight: bold;
+}
+
+/* RULE 7: Element + two class selectors */
+/* Specificity: (0, 2, 1) */
+p.text.highlight {
+    color: red;
+    font-size: 18px;
+}
+
+/* RULE 8: ID selector */
+/* Specificity: (1, 0, 0) */
+#demo {
+    color: orange;
+    background: transparent;
+}
+
+/* RULE 9: ID + class selector */
+/* Specificity: (1, 1, 0) */
+#demo.text {
+    color: gold;
+    text-transform: uppercase;
+}
+
+/* RULE 10: ID + two class selectors - WINNER! */
+/* Specificity: (1, 2, 0) - Cao nhất */
+#demo.text.highlight {
+    color: green;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+/* ============================================ */
+/* STYLING FOR PAGE */
+/* ============================================ */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+header p {
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* MAIN CONTENT */
+main {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    color: #667eea;
+    font-size: 24px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+
+section h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* DEMO SECTION */
+.demo-section {
+    margin-bottom: 40px;
+}
+
+.target-box {
+    background: #f9f9f9;
+    padding: 30px;
+    border: 2px dashed #667eea;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.target-box p {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1;
+}
+
+/* INFO BOX */
+.info-box {
+    background: #e7f3ff;
+    border-left: 4px solid #2196F3;
+    padding: 15px;
+    border-radius: 4px;
+    color: #0c5aa0;
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+.info-box p {
+    margin: 8px 0;
+}
+
+.info-box code {
+    background: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #d63031;
+}
+
+/* RULES TABLE */
+.rules-section {
+    margin-bottom: 40px;
+}
+
+.rules-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.rules-table thead {
+    background: #667eea;
+    color: white;
+}
+
+.rules-table thead th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    border-bottom: 2px solid #667eea;
+}
+
+.rules-table tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.rules-table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.rules-table tbody tr:hover {
+    background: #f0f4ff;
+}
+
+.rules-table code {
+    background: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #333;
+}
+
+.spec-low {
+    color: #e74c3c;
+    font-weight: 600;
+    background: #ffe0e0;
+    padding: 4px 8px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.spec-mid {
+    color: #f39c12;
+    font-weight: 600;
+    background: #fff3cd;
+    padding: 4px 8px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.spec-high {
+    color: #27ae60;
+    font-weight: 600;
+    background: #d4edda;
+    padding: 4px 8px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.spec-winner {
+    color: white;
+    background: #008000;
+    padding: 4px 8px;
+    border-radius: 3px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.rules-table tr.winner {
+    background: #d4edda !important;
+    border: 2px solid #27ae60;
+}
+
+/* RESULT SECTION */
+.result-section {
+    margin-bottom: 40px;
+}
+
+.result-box {
+    background: #f0f4ff;
+    border: 2px solid #667eea;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.result-box p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.color-result {
+    font-size: 32px;
+    font-weight: 900;
+    margin: 20px 0;
+    padding: 15px;
+    background: white;
+    border-radius: 4px;
+}
+
+/* EXPLANATION BOX */
+.explanation-box {
+    background: #fff9e6;
+    border-left: 4px solid #ffc107;
+    padding: 20px;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.explanation-box h3 {
+    color: #856404;
+    margin: 0 0 15px 0;
+}
+
+.explanation-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.explanation-box li {
+    margin: 8px 0;
+    color: #555;
+}
+
+.explanation-box ol {
+    margin: 5px 0;
+    padding-left: 20px;
+}
+
+.explanation-box ol li {
+    color: #555;
+    margin: 4px 0;
+}
+
+/* ORDER TEST SECTION */
+.order-test-section {
+    margin-bottom: 40px;
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.code-box {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.code-box p {
+    margin: 5px 0;
+    color: #ecf0f1;
+}
+
+/* TIPS SECTION */
+.tips-section {
+    margin-bottom: 40px;
+}
+
+.tip {
+    background: #e8f4f8;
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.tip strong {
+    color: #2980b9;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.tip p {
+    margin: 0;
+    color: #34495e;
+    font-size: 14px;
+}
+
+/* DEVTOOLS SECTION */
+.devtools-section {
+    background: #f0f4ff;
+    border: 2px dashed #667eea;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.devtools-section ol {
+    margin: 0;
+    padding-left: 25px;
+}
+
+.devtools-section li {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+footer p {
+    margin: 0;
+    color: #667eea;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+    }
+
+    .rules-table {
+        font-size: 12px;
+    }
+
+    .rules-table th,
+    .rules-table td {
+        padding: 10px;
+    }
+
+    header {
+        padding: 25px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    section h2 {
+        font-size: 20px;
+    }
+
+    .target-box p {
+        font-size: 20px;
+    }
+
+    .color-result {
+        font-size: 24px;
+    }
+}
