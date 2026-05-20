@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout - E-Commerce - PBT 04</title>
+    <link rel="stylesheet" href="grid.css">
+</head>
+<body>
+    <!-- ================================================
+         GRID LAYOUT E-COMMERCE HOMEPAGE
+         ================================================ -->
+    <div class="grid-layout">
+        <!-- HEADER (full width) -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-logo">🛍️ GridShop Pro</div>
+                <div class="header-search">
+                    <input type="text" placeholder="Tìm sản phẩm...">
+                    <button>🔍</button>
+                </div>
+                <div class="header-icons">
+                    <span class="icon">❤️</span>
+                    <span class="icon">🛒</span>
+                    <span class="icon">👤</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO BANNER (full width) -->
+        <section class="hero">
+            <h1>☀️ Mùa hè sale lớn</h1>
+            <p>Giảm tới 70% cho tất cả sản phẩm</p>
+            <button class="btn-hero">Khám phá ngay</button>
+        </section>
+
+        <!-- SIDEBAR - FILTER (Cột 1) -->
+        <aside class="sidebar">
+            <h3>🔍 Bộ lọc</h3>
+            
+            <div class="filter-group">
+                <h4>Danh mục</h4>
+                <label><input type="checkbox"> Điện tử</label>
+                <label><input type="checkbox"> Thời trang</label>
+                <label><input type="checkbox"> Sách</label>
+                <label><input type="checkbox"> Đồ gia dụng</label>
+                <label><input type="checkbox"> Thể thao</label>
+            </div>
+
+            <div class="filter-group">
+                <h4>Mức giá</h4>
+                <label><input type="checkbox"> Dưới 500K</label>
+                <label><input type="checkbox"> 500K - 1M</label>
+                <label><input type="checkbox"> 1M - 5M</label>
+                <label><input type="checkbox"> Trên 5M</label>
+            </div>
+
+            <div class="filter-group">
+                <h4>Đánh giá</h4>
+                <label><input type="checkbox"> ⭐⭐⭐⭐⭐ 5 sao</label>
+                <label><input type="checkbox"> ⭐⭐⭐⭐ 4+ sao</label>
+                <label><input type="checkbox"> ⭐⭐⭐ 3+ sao</label>
+            </div>
+
+            <button class="btn-filter">Áp dụng</button>
+            <button class="btn-clear">Xóa bộ lọc</button>
+        </aside>
+
+        <!-- MAIN CONTENT (Cột 2) -->
+        <main class="main-content">
+            <div class="content-header">
+                <h2>📦 Sản phẩm bán chạy</h2>
+                <div class="sort-options">
+                    <label>Sắp xếp: 
+                        <select>
+                            <option>Phổ biến</option>
+                            <option>Giá thấp</option>
+                            <option>Giá cao</option>
+                            <option>Mới nhất</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Grid con: 3 cột sản phẩm -->
+            <div class="products-grid">
+                <!-- FEATURED PRODUCT - SPAN 2 (Bonus) -->
+                <div class="product-card featured">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23667eea' width='200' height='200'/%3E%3Ctext x='100' y='110' font-size='80' fill='white' text-anchor='middle'%3E📱%3C/text%3E%3C/svg%3E" alt="Featured">
+                        <span class="badge-featured">✨ Nổi bật</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Flagship Smartphone 2026</h3>
+                        <p class="product-desc">Công nghệ AI mới nhất, Camera 200MP, Pin 100W</p>
+                        <p class="product-price">₫ 19,990,000</p>
+                        <div class="rating">⭐⭐⭐⭐⭐ (2,458 đánh giá)</div>
+                        <button class="btn-add">Thêm vào giỏ</button>
+                    </div>
+                </div>
+
+                <!-- REGULAR PRODUCTS -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Crect fill='%23764ba2' width='150' height='150'/%3E%3Ctext x='75' y='80' font-size='60' fill='white' text-anchor='middle'%3E⌚%3C/text%3E%3C/svg%3E" alt="Watch">
+                        <span class="badge-discount">-30%</span>
+                    </div>
+                    <h3>Smartwatch Pro 5</h3>
+                    <p class="product-price">₫ 3,490,000</p>
+                    <p class="original-price">₫ 4,990,000</p>
+                    <div class="rating">⭐⭐⭐⭐ (856 đánh giá)</div>
+                    <button class="btn-add">Thêm vào giỏ</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Crect fill='%23f093fb' width='150' height='150'/%3E%3Ctext x='75' y='80' font-size='60' fill='white' text-anchor='middle'%3E🎧%3C/text%3E%3C/svg%3E" alt="Headphones">
+                        <span class="badge-discount">-25%</span>
+                    </div>
+                    <h3>Wireless Headphones Pro</h3>
+                    <p class="product-price">₫ 1,490,000</p>
+                    <p class="original-price">₫ 1,990,000</p>
+                    <div class="rating">⭐⭐⭐⭐⭐ (1,234 đánh giá)</div>
+                    <button class="btn-add">Thêm vào giỏ</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Crect fill='%234facfe' width='150' height='150'/%3E%3Ctext x='75' y='80' font-size='60' fill='white' text-anchor='middle'%3E💻%3C/text%3E%3C/svg%3E" alt="Laptop">
+                        <span class="badge-discount">-20%</span>
+                    </div>
+                    <h3>Laptop UltraBook 15"</h3>
+                    <p class="product-price">₫ 12,990,000</p>
+                    <p class="original-price">₫ 16,190,000</p>
+                    <div class="rating">⭐⭐⭐⭐⭐ (567 đánh giá)</div>
+                    <button class="btn-add">Thêm vào giỏ</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Crect fill='%23fa5042' width='150' height='150'/%3E%3Ctext x='75' y='80' font-size='60' fill='white' text-anchor='middle'%3E📷%3C/text%3E%3C/svg%3E" alt="Camera">
+                    </div>
+                    <h3>Digital Camera 8K</h3>
+                    <p class="product-price">₫ 8,990,000</p>
+                    <div class="rating">⭐⭐⭐⭐ (345 đánh giá)</div>
+                    <button class="btn-add">Thêm vào giỏ</button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Crect fill='%2343e97b' width='150' height='150'/%3E%3Ctext x='75' y='80' font-size='60' fill='white' text-anchor='middle'%3E🖥️%3C/text%3E%3C/svg%3E" alt="Monitor">
+                        <span class="badge-discount">-15%</span>
+                    </div>
+                    <h3>Curved Monitor 32"</h3>
+                    <p class="product-price">₫ 3,990,000</p>
+                    <p class="original-price">₫ 4,690,000</p>
+                    <div class="rating">⭐⭐⭐⭐⭐ (234 đánh giá)</div>
+                    <button class="btn-add">Thêm vào giỏ</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- ADS - SIDEBAR (Cột 3) -->
+        <aside class="ads">
+            <div class="ad-banner">
+                <h3>💳 Ưu đãi</h3>
+                <div class="ad-content">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23667eea' width='100' height='100'/%3E%3Ctext x='50' y='55' font-size='50' fill='white' text-anchor='middle'%3E💳%3C/text%3E%3C/svg%3E" alt="Payment">
+                    <p><strong>Hoàn tiền 20%</strong></p>
+                    <p style="font-size: 12px;">Khi thanh toán với thẻ tín dụng</p>
+                </div>
+            </div>
+
+            <div class="ad-banner">
+                <h3>🚚 Miễn phí ship</h3>
+                <div class="ad-content">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23764ba2' width='100' height='100'/%3E%3Ctext x='50' y='55' font-size='50' fill='white' text-anchor='middle'%3E🚚%3C/text%3E%3C/svg%3E" alt="Free Shipping">
+                    <p><strong>Đơn hàng trên 500K</strong></p>
+                    <p style="font-size: 12px;">Giao hàng trong 1-2 ngày</p>
+                </div>
+            </div>
+
+            <div class="ad-banner">
+                <h3>⭐ Hàng hot</h3>
+                <div class="ad-content">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23fa5042' width='100' height='100'/%3E%3Ctext x='50' y='55' font-size='50' fill='white' text-anchor='middle'%3E🔥%3C/text%3E%3C/svg%3E" alt="Trending">
+                    <p><strong>Được yêu thích</strong></p>
+                    <p style="font-size: 12px;">Bán chạy nhất tuần này</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- FOOTER (full width) -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Về chúng tôi</h4>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Báo chí</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Hỗ trợ khách hàng</h4>
+                    <ul>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Trả hàng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Chính sách</h4>
+                    <ul>
+                        <li><a href="#">Điều khoản</a></li>
+                        <li><a href="#">Bảo mật</a></li>
+                        <li><a href="#">Cookie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Liên hệ</h4>
+                    <p>Email: support@gridshop.com</p>
+                    <p>Phone: 1900 xxx xxxx</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 GridShop Pro. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
