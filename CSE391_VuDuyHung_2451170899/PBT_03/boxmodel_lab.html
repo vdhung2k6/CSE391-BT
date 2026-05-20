@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Lab - content-box vs border-box</title>
+    <link rel="stylesheet" href="boxmodel.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Box Model Lab - Content-box vs Border-box</h1>
+            <p>Chứng minh sự khác biệt giữa hai cách tính box model trong CSS</p>
+        </header>
+
+        <!-- PHẦN 1: SO SÁNH CONTENT-BOX vs BORDER-BOX -->
+        <section class="lab-section">
+            <h2>Phần 1: So sánh Content-box vs Border-box</h2>
+            <p class="instruction">
+                ℹ️ Mở DevTools (F12) → Chọn từng hộp → Tab "Computed" → Xem "Box Model diagram"
+            </p>
+
+            <div class="boxes-container">
+                <div class="box box-content">
+                    <div class="box-label">Box 1: content-box</div>
+                    <p>width: 300px</p>
+                    <p>padding: 20px</p>
+                    <p>border: 5px</p>
+                </div>
+
+                <div class="box box-border">
+                    <div class="box-label">Box 2: border-box</div>
+                    <p>width: 300px</p>
+                    <p>padding: 20px</p>
+                    <p>border: 5px</p>
+                </div>
+            </div>
+
+            <div class="calculation-note">
+                <h3>📐 Tính toán:</h3>
+                <div class="calc-group">
+                    <strong>Box 1 (content-box):</strong>
+                    <ul>
+                        <li>Chiều rộng hiển thị = 300 + (20×2) + (5×2) = <span class="highlight">350px</span></li>
+                        <li>Không gian chiếm = 350 + (10×2) margin = <span class="highlight">370px</span></li>
+                    </ul>
+                </div>
+
+                <div class="calc-group">
+                    <strong>Box 2 (border-box):</strong>
+                    <ul>
+                        <li>Chiều rộng hiển thị = <span class="highlight">300px</span> (bao gồm padding + border)</li>
+                        <li>Content thực = 300 - (20×2) - (5×2) = <span class="highlight">250px</span></li>
+                        <li>Không gian chiếm = 300 + (10×2) margin = <span class="highlight">320px</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Kết luận:</strong> Vì `box-sizing: border-box`, chiều rộng thực tế không tăng thêm khi thêm padding/border. 
+                Đây là lý do tại sao nên dùng `* { box-sizing: border-box; }` ở dầu mọi dự án CSS!
+            </div>
+        </section>
+
+        <!-- PHẦN 2: LAYOUT 3 CỘT -->
+        <section class="lab-section">
+            <h2>Phần 2: Layout 3 Cột (Content-box Problem)</h2>
+            <p class="instruction">
+                ℹ️ Container rộng 1000px. 3 cột phải nằm cạnh nhau mà không wrap.
+            </p>
+
+            <div class="demo-box">
+                <h3>❌ Cách SAIIII (Không dùng border-box)</h3>
+                <div class="container-wrong">
+                    <div class="sidebar-wrong">
+                        <strong>Sidebar</strong><br>
+                        250px + 30px padding + 2px border
+                        = <span class="error">282px</span>
+                    </div>
+                    <div class="content-wrong">
+                        <strong>Content</strong><br>
+                        500px + 40px padding + 2px border
+                        = <span class="error">542px</span>
+                    </div>
+                    <div class="ads-wrong">
+                        <strong>Ads</strong><br>
+                        250px + 30px padding + 2px border
+                        = <span class="error">282px</span>
+                    </div>
+                </div>
+                <p style="color: #e74c3c; font-weight: 600; margin-top: 15px;">
+                    🔴 Tổng = 282 + 542 + 282 = 1106px > 1000px → Content bị wrap xuống!
+                </p>
+            </div>
+
+            <div class="demo-box">
+                <h3>✅ Cách ĐÚNG (Dùng border-box)</h3>
+                <div class="container-right">
+                    <div class="sidebar-right">
+                        <strong>Sidebar</strong><br>
+                        width: 250px<br>
+                        (bao gồm padding + border)
+                    </div>
+                    <div class="content-right">
+                        <strong>Content</strong><br>
+                        width: 500px<br>
+                        (bao gồm padding + border)
+                    </div>
+                    <div class="ads-right">
+                        <strong>Ads</strong><br>
+                        width: 250px<br>
+                        (bao gồm padding + border)
+                    </div>
+                </div>
+                <p style="color: #27ae60; font-weight: 600; margin-top: 15px;">
+                    🟢 Tổng = 250 + 500 + 250 = 1000px ✓ Perfect fit!
+                </p>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Giải pháp:</strong> Thêm `* { box-sizing: border-box; }` ở đầu CSS. 
+                Khi đó, width đã bao gồm padding + border, không cần tính toán phức tạp.
+            </div>
+        </section>
+
+        <!-- PHẦN 3: MARGIN COLLAPSE DEMO -->
+        <section class="lab-section">
+            <h2>Phần 3: Margin Collapse</h2>
+            <p class="instruction">
+                ℹ️ Khoảng cách giữa 2 block elements không CỘNG, mà lấy giá trị LỚN HƠN
+            </p>
+
+            <div class="collapse-demo">
+                <div class="box-a">Box A: margin-bottom = 30px</div>
+                <div class="box-b">Box B: margin-top = 50px</div>
+            </div>
+
+            <div class="calculation-note">
+                <h3>📐 Tính toán Margin Collapse:</h3>
+                <ul>
+                    <li>Box A: margin-bottom = 30px</li>
+                    <li>Box B: margin-top = 50px</li>
+                    <li>Khoảng cách = max(30, 50) = <span class="highlight">50px</span></li>
+                    <li><span style="color: #e74c3c;">❌ KHÔNG PHẢI 30 + 50 = 80px</span></li>
+                    <li><span style="color: #27ae60;">✅ Margin collapse: Lấy cái lớn nhất!</span></li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Quy tắc Margin Collapse:</strong>
+                <ul style="margin: 10px 0;">
+                    <li>✓ Áp dụng cho block elements</li>
+                    <li>✓ Chỉ vertical margins (top/bottom), không horizontal</li>
+                    <li>✓ Margin của 2 elements kề nhau sẽ "collapse"</li>
+                    <li>✓ Lấy max value, không cộng lại</li>
+                    <li>✗ KHÔNG áp dụng nếu có padding/border/float giữa chúng</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>💻 Hãy mở DevTools để thực hành và kiểm chứng các khái niệm trên</p>
+        </footer>
+    </div>
+</body>
+</html>

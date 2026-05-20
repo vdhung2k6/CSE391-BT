@@ -1,0 +1,396 @@
+/* ============================================ */
+/* RESET & RESET BOX SIZING */
+/* ============================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ============================================ */
+/* HEADER */
+/* ============================================ */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+}
+
+header p {
+    margin: 0;
+    opacity: 0.95;
+    font-size: 16px;
+}
+
+/* ============================================ */
+/* SECTION STYLING */
+/* ============================================ */
+.lab-section {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.lab-section h2 {
+    color: #667eea;
+    font-size: 24px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+
+.instruction {
+    background: #e7f3ff;
+    border-left: 4px solid #2196F3;
+    padding: 12px;
+    border-radius: 4px;
+    color: #0c5aa0;
+    font-size: 14px;
+    margin: 0 0 25px 0;
+}
+
+/* ============================================ */
+/* PHẦN 1: BOX CONTAINERS */
+/* ============================================ */
+.boxes-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.box {
+    padding: 20px;
+    border: 5px solid;
+    margin: 10px;
+    color: white;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.box-content {
+    background: #FF6B6B;
+    border-color: #c92a2a;
+    box-sizing: content-box;
+}
+
+.box-border {
+    background: #4ECDC4;
+    border-color: #1d9b95;
+    box-sizing: border-box;
+}
+
+.box-label {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.box p {
+    margin: 5px 0;
+}
+
+/* ============================================ */
+/* CALCULATION NOTE */
+/* ============================================ */
+.calculation-note {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    margin-bottom: 20px;
+}
+
+.calculation-note h3 {
+    color: #667eea;
+    margin: 0 0 15px 0;
+    font-size: 16px;
+}
+
+.calc-group {
+    margin-bottom: 15px;
+}
+
+.calc-group strong {
+    display: block;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.calc-group ul {
+    margin: 0;
+    padding-left: 25px;
+    list-style: none;
+}
+
+.calc-group li {
+    padding: 4px 0;
+    color: #555;
+    font-size: 14px;
+    position: relative;
+}
+
+.calc-group li:before {
+    content: "→ ";
+    position: absolute;
+    left: -20px;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.highlight {
+    background: #fff3cd;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+    color: #856404;
+}
+
+/* ============================================ */
+/* PHẦN 2: 3-COLUMN LAYOUT DEMO */
+/* ============================================ */
+.demo-box {
+    margin-bottom: 25px;
+}
+
+.demo-box h3 {
+    color: #333;
+    margin: 0 0 15px 0;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.demo-box:nth-of-type(1) h3 {
+    background: #ffe0e0;
+    color: #c92a2a;
+}
+
+.demo-box:nth-of-type(2) h3 {
+    background: #d3f9d8;
+    color: #2f5233;
+}
+
+/* SAIIII: Content-box layout */
+.container-wrong {
+    display: flex;
+    gap: 0;
+    width: 1000px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+    background: #f5f5f5;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.sidebar-wrong,
+.content-wrong,
+.ads-wrong {
+    padding: 15px;
+    border: 1px solid #999;
+    background: white;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.sidebar-wrong {
+    width: 250px;
+    background: #ffebee;
+}
+
+.content-wrong {
+    width: 500px;
+    background: #fff3e0;
+}
+
+.ads-wrong {
+    width: 250px;
+    background: #f3e5f5;
+}
+
+.error {
+    color: #e74c3c;
+    font-weight: 600;
+    background: #ffe0e0;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* ĐÚNG: Border-box layout */
+.container-right {
+    display: flex;
+    gap: 0;
+    width: 1000px;
+    margin: 15px 0;
+    background: #f5f5f5;
+    padding: 10px;
+    border: 2px solid #27ae60;
+    border-radius: 4px;
+}
+
+.sidebar-right,
+.content-right,
+.ads-right {
+    padding: 15px;
+    border: 1px solid #27ae60;
+    background: white;
+    font-size: 13px;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.sidebar-right {
+    width: 250px;
+    background: #d4edda;
+}
+
+.content-right {
+    width: 500px;
+    background: #cfe2ff;
+}
+
+.ads-right {
+    width: 250px;
+    background: #e2e3e5;
+}
+
+/* ============================================ */
+/* PHẦN 3: MARGIN COLLAPSE */
+/* ============================================ */
+.collapse-demo {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 2px dashed #999;
+}
+
+.box-a {
+    background: #667eea;
+    color: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.box-b {
+    background: #764ba2;
+    color: white;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ============================================ */
+/* INFO BOX */
+/* ============================================ */
+.info-box {
+    background: #e7f3ff;
+    border-left: 4px solid #2196F3;
+    padding: 15px;
+    border-radius: 4px;
+    color: #0c5aa0;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.info-box strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.info-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.info-box li {
+    margin: 6px 0;
+}
+
+/* ============================================ */
+/* FOOTER */
+/* ============================================ */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+footer p {
+    margin: 0;
+    color: #667eea;
+    font-weight: 500;
+}
+
+/* ============================================ */
+/* RESPONSIVE */
+/* ============================================ */
+@media (max-width: 900px) {
+    .boxes-container {
+        grid-template-columns: 1fr;
+    }
+
+    .container-wrong,
+    .container-right {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .sidebar-wrong,
+    .sidebar-right,
+    .content-wrong,
+    .content-right,
+    .ads-wrong,
+    .ads-right {
+        width: auto;
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .lab-section {
+        padding: 20px;
+    }
+
+    header {
+        padding: 25px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+}
