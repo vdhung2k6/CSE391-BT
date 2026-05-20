@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Layout - Navbar & Product Cards - PBT 04</title>
+    <link rel="stylesheet" href="flexbox.css">
+</head>
+<body>
+    <!-- ================================================
+         PHẦN 1: NAVBAR DÙNG FLEXBOX
+         ================================================ -->
+    <nav class="navbar">
+        <!-- Logo bên trái -->
+        <div class="navbar-logo">
+            <span class="logo-icon">🛒</span>
+            <span class="logo-text">FlexShop</span>
+        </div>
+
+        <!-- Menu items nằm giữa -->
+        <div class="navbar-menu">
+            <a href="#home" class="menu-item">Trang chủ</a>
+            <a href="#products" class="menu-item">Sản phẩm</a>
+            <a href="#about" class="menu-item">Về chúng tôi</a>
+            <a href="#contact" class="menu-item">Liên hệ</a>
+        </div>
+
+        <!-- Nút đăng nhập/đăng ký bên phải -->
+        <div class="navbar-auth">
+            <button class="btn btn-login">Đăng nhập</button>
+            <button class="btn btn-register">Đăng ký</button>
+        </div>
+    </nav>
+
+    <!-- ================================================
+         PHẦN 2: PRODUCT CARDS GRID DÙNG FLEXBOX
+         ================================================ -->
+    <main class="container">
+        <section class="hero">
+            <h1>🎉 Khám phá sản phẩm mới</h1>
+            <p>Chất lượng cao, giá cả phải chăng</p>
+        </section>
+
+        <section class="products-section">
+            <h2>📦 Sản phẩm nổi bật</h2>
+
+            <div class="products-container">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23667eea' width='100' height='100'/%3E%3Ctext x='50' y='55' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'%3E📱%3C/text%3E%3C/svg%3E" alt="Smartphone">
+                    </div>
+                    <h3 class="product-name">Smartphone Pro Max</h3>
+                    <p class="product-price">₫ 12,990,000</p>
+                    <p class="product-desc">Màn hình 6.7", Chip mạnh mẽ, Camera 108MP</p>
+                    <button class="btn-product">Mua ngay</button>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23764ba2' width='100' height='100'/%3E%3Ctext x='50' y='55' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'%3E⌚%3C/text%3E%3C/svg%3E" alt="Smartwatch">
+                    </div>
+                    <h3 class="product-name">Smartwatch Elite</h3>
+                    <p class="product-price">₫ 3,490,000</p>
+                    <p class="product-desc">Theo dõi sức khỏe, Pin 7 ngày</p>
+                    <button class="btn-product">Mua ngay</button>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23f093fb' width='100' height='100'/%3E%3Ctext x='50' y='55' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'%3E🎧%3C/text%3E%3C/svg%3E" alt="Headphones">
+                    </div>
+                    <h3 class="product-name">Wireless Headphones</h3>
+                    <p class="product-price">₫ 1,990,000</p>
+                    <p class="product-desc">Âm thanh Hi-Fi, Noise Cancelling</p>
+                    <button class="btn-product">Mua ngay</button>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%234facfe' width='100' height='100'/%3E%3Ctext x='50' y='55' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'%3E💻%3C/text%3E%3C/svg%3E" alt="Laptop">
+                    </div>
+                    <h3 class="product-name">Laptop UltraBook</h3>
+                    <p class="product-price">₫ 15,990,000</p>
+                    <p class="product-desc">Intel i7, 16GB RAM, SSD 512GB</p>
+                    <button class="btn-product">Mua ngay</button>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23fa5042' width='100' height='100'/%3E%3Ctext x='50' y='55' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'%3E📷%3C/text%3E%3C/svg%3E" alt="Camera">
+                    </div>
+                    <h3 class="product-name">Digital Camera 4K</h3>
+                    <p class="product-price">₫ 8,990,000</p>
+                    <p class="product-desc">Video 4K 60fps, Lấy nét tự động</p>
+                    <button class="btn-product">Mua ngay</button>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%2343e97b' width='100' height='100'/%3E%3Ctext x='50' y='55' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'%3E🖥️%3C/text%3E%3C/svg%3E" alt="Monitor">
+                    </div>
+                    <h3 class="product-name">Curved Monitor 32"</h3>
+                    <p class="product-price">₫ 4,490,000</p>
+                    <p class="product-desc">1440p, 144Hz, Cong 1500R</p>
+                    <button class="btn-product">Mua ngay</button>
+                </div>
+
+                <!-- Product Card 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23fa709a' width='100' height='100'/%3E%3Ctext x='50' y='55' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'%3E⌨️%3C/text%3E%3C/svg%3E" alt="Keyboard">
+                    </div>
+                    <h3 class="product-name">Mechanical Keyboard</h3>
+                    <p class="product-price">₫ 1,490,000</p>
+                    <p class="product-desc">RGB Backlight, Switch cơ</p>
+                    <button class="btn-product">Mua ngay</button>
+                </div>
+
+                <!-- Product Card 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23fee140' width='100' height='100'/%3E%3Ctext x='50' y='55' font-size='50' fill='white' text-anchor='middle' dominant-baseline='middle'%3E🖱️%3C/text%3E%3C/svg%3E" alt="Mouse">
+                    </div>
+                    <h3 class="product-name">Gaming Mouse Pro</h3>
+                    <p class="product-price">₫ 890,000</p>
+                    <p class="product-desc">16000 DPI, Ergonomic Design</p>
+                    <button class="btn-product">Mua ngay</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 FlexShop. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>
