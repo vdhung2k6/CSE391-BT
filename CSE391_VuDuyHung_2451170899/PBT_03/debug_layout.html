@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Layout - CSS Float Problem</title>
+    <link rel="stylesheet" href="debug_layout.css">
+</head>
+<body>
+    <div class="container-wrapper">
+        <header>
+            <h1>🔧 Debug Layout - CSS Float Problem & Solutions</h1>
+            <p>Container rộng 960px, sidebar + content bị wrap xuống</p>
+        </header>
+
+        <main>
+            <!-- PHẦN 1: PROBLEM - LAYOUT BỊ VỠ -->
+            <section class="problem-section">
+                <h2>❌ PROBLEM: Layout bị vỡ (content-box)</h2>
+                <p class="explanation">
+                    Container: 960px | Sidebar: 300px + 20px padding + 1px border | Content: 660px + 30px padding + 1px border<br>
+                    <strong>Tổng cộng: 342px + 722px = 1064px > 960px → Content wrap xuống!</strong>
+                </p>
+
+                <div class="problem-demo">
+                    <div class="layout-wrong">
+                        <div class="sidebar-wrong">
+                            <strong>Sidebar</strong>
+                            <p>width: 300px</p>
+                            <p>padding: 20px</p>
+                            <p>border: 1px</p>
+                            <p class="calc">= 342px</p>
+                        </div>
+                        <div class="content-wrong">
+                            <strong>Content</strong>
+                            <p>width: 660px</p>
+                            <p>padding: 30px</p>
+                            <p>border: 1px</p>
+                            <p class="calc">= 722px</p>
+                        </div>
+                    </div>
+                    <p class="error-note">
+                        🔴 Chiều rộng thực tế: 342 + 722 = 1064px (VƯỢT QUÁ 960px!)
+                    </p>
+                </div>
+
+                <div class="calculation-box">
+                    <h3>📐 Tính toán chi tiết (content-box):</h3>
+                    <ul>
+                        <li><strong>Sidebar:</strong> 300 + (20×2) + (1×2) = 300 + 40 + 2 = <span class="highlight">342px</span></li>
+                        <li><strong>Content:</strong> 660 + (30×2) + (1×2) = 660 + 60 + 2 = <span class="highlight">722px</span></li>
+                        <li><strong>Tổng:</strong> 342 + 722 = <span class="error">1064px</span></li>
+                        <li><strong>Container:</strong> 960px</li>
+                        <li><strong>Vượt quá:</strong> 1064 - 960 = <span class="error">104px</span> → Content bị wrap!</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PHẦN 2: SOLUTION 1 - BORDER-BOX (RECOMMENDED) -->
+            <section class="solution-section">
+                <h2>✅ SOLUTION 1: Dùng border-box (KHUYẾN NGHỊ)</h2>
+                <p class="explanation">
+                    Thêm `* { box-sizing: border-box; }` → Width đã bao gồm padding + border!
+                </p>
+
+                <div class="solution1-demo">
+                    <div class="layout-right">
+                        <div class="sidebar-right">
+                            <strong>Sidebar</strong>
+                            <p>width: 250px</p>
+                            <p>(đã bao gồm padding + border)</p>
+                        </div>
+                        <div class="content-right">
+                            <strong>Content</strong>
+                            <p>width: 500px</p>
+                            <p>(đã bao gồm padding + border)</p>
+                        </div>
+                        <div class="ads-right">
+                            <strong>Ads</strong>
+                            <p>width: 250px</p>
+                            <p>(đã bao gồm padding + border)</p>
+                        </div>
+                    </div>
+                    <p class="success-note">
+                        🟢 Chiều rộng thực tế: 250 + 500 + 250 = 960px ✓ PERFECT!
+                    </p>
+                </div>
+
+                <div class="code-box">
+                    <h3>💻 CSS Code:</h3>
+                    <pre><code>/* BƯỚC 1: Reset tất cả elements */
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    width: 250px;      /* Width đã = padding + border + content */
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+}
+
+.content {
+    width: 500px;      /* Width đã = padding + border + content */
+    padding: 30px;
+    border: 1px solid #ccc;
+    float: left;
+}
+
+.ads {
+    width: 250px;      /* Width đã = padding + border + content */
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+}</code></pre>
+                </div>
+
+                <div class="pros-cons-box">
+                    <h3>✅ Ưu điểm:</h3>
+                    <ul>
+                        <li>Đơn giản, dễ hiểu</li>
+                        <li>Không cần tính toán phức tạp</li>
+                        <li>Thích ứng tốt khi thay đổi padding</li>
+                        <li><strong>Nên dùng từ đầu mọi dự án CSS</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PHẦN 3: SOLUTION 2 - ĐIỀU CHỈNH WIDTH -->
+            <section class="solution-section">
+                <h2>✅ SOLUTION 2: Không dùng border-box, điều chỉnh width</h2>
+                <p class="explanation">
+                    Tính toán lại width để phù hợp: width = (target size) - padding - border
+                </p>
+
+                <div class="solution2-demo">
+                    <div class="layout-adjust">
+                        <div class="sidebar-adjust">
+                            <strong>Sidebar</strong>
+                            <p>width: 208px</p>
+                            <p>padding: 20px</p>
+                            <p>border: 1px</p>
+                        </div>
+                        <div class="content-adjust">
+                            <strong>Content</strong>
+                            <p>width: 428px</p>
+                            <p>padding: 30px</p>
+                            <p>border: 1px</p>
+                        </div>
+                        <div class="ads-adjust">
+                            <strong>Ads</strong>
+                            <p>width: 208px</p>
+                            <p>padding: 20px</p>
+                            <p>border: 1px</p>
+                        </div>
+                    </div>
+                    <p class="success-note">
+                        🟢 Chiều rộng thực tế: 250 + 500 + 250 = 960px ✓ PERFECT!
+                    </p>
+                </div>
+
+                <div class="code-box">
+                    <h3>💻 CSS Code:</h3>
+                    <pre><code>/* KHÔNG dùng border-box */
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    /* Target width = 250px */
+    /* 250 - (20×2) - (1×2) = 250 - 40 - 2 = 208px */
+    width: 208px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+}
+
+.content {
+    /* Target width = 500px */
+    /* 500 - (30×2) - (1×2) = 500 - 60 - 2 = 428px */
+    width: 428px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    float: left;
+}
+
+.ads {
+    /* Target width = 250px */
+    /* 250 - (20×2) - (1×2) = 250 - 40 - 2 = 208px */
+    width: 208px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+}</code></pre>
+                </div>
+
+                <div class="pros-cons-box">
+                    <h3>❌ Nhược điểm:</h3>
+                    <ul>
+                        <li>Tính toán phức tạp, dễ nhầm lẫn</li>
+                        <li>Khó maintain khi thay đổi padding/border</li>
+                        <li>Nếu quên tính, layout sẽ bị vỡ</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- PHẦN 4: SO SÁNH 2 CÁCH -->
+            <section class="comparison-section">
+                <h2>⚖️ So sánh 2 cách sửa:</h2>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Tiêu chí</th>
+                            <th>Cách 1: border-box</th>
+                            <th>Cách 2: Điều chỉnh width</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Độ phức tạp</strong></td>
+                            <td>✅ Đơn giản</td>
+                            <td>❌ Phức tạp</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tính toán</strong></td>
+                            <td>✅ Không cần</td>
+                            <td>❌ Cần tính toán</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Maintain</strong></td>
+                            <td>✅ Dễ</td>
+                            <td>❌ Khó</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Thay đổi padding</strong></td>
+                            <td>✅ Không ảnh hưởng layout</td>
+                            <td>❌ Phải tính lại width</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Khuyến nghị</strong></td>
+                            <td>✅ <strong>DÙNG CÁI NÀY</strong></td>
+                            <td>❌ Tránh nếu có thể</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="conclusion-box">
+                    <h3>🎯 Kết luận:</h3>
+                    <p>
+                        <strong>Dùng Cách 1 (border-box) từ đầu mọi dự án!</strong>
+                    </p>
+                    <p>
+                        Thêm dòng này vào đầu CSS file của bạn:
+                    </p>
+                    <pre><code>* {
+    box-sizing: border-box;
+}</code></pre>
+                    <p>
+                        Điều này sẽ tiết kiệm rất nhiều thời gian debug layout issues.
+                    </p>
+                </div>
+            </section>
+
+            <!-- PHẦN 5: ADDITIONAL TIPS -->
+            <section class="tips-section">
+                <h2>💡 Tips & Best Practices:</h2>
+                
+                <div class="tip-item">
+                    <strong>1. Float Layout (Legacy)</strong>
+                    <p>
+                        Float dùng để tạo layout cột. Tuy nhiên, hiện tại nên dùng:
+                        <ul>
+                            <li><strong>Flexbox</strong> (dễ dùng, tương thích tốt)</li>
+                            <li><strong>CSS Grid</strong> (mạnh mẽ, cho layout phức tạp)</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="tip-item">
+                    <strong>2. Box Model là nền tảng</strong>
+                    <p>
+                        Hiểu rõ box model giúp bạn:
+                        <ul>
+                            <li>Debug layout issues nhanh hơn</li>
+                            <li>Tính toán sizing chính xác</li>
+                            <li>Tránh các bugs liên quan đến spacing</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="tip-item">
+                    <strong>3. Clear-fix for Float</strong>
+                    <p>
+                        Khi dùng float, phần tử sau float sẽ "wrap" vào bên cạnh. Cách sửa:
+                        <pre><code>.clear {
+    clear: both;
+}</code></pre>
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Hiểu rõ CSS Box Model → Debug layout issues dễ dàng hơn! 🚀</p>
+        </footer>
+    </div>
+</body>
+</html>

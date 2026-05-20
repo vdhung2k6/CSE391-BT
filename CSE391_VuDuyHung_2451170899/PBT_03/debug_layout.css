@@ -1,0 +1,582 @@
+/* ============================================ */
+/* RESET & BOX SIZING */
+/* ============================================ */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ============================================ */
+/* HEADER */
+/* ============================================ */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+header p {
+    margin: 0;
+    opacity: 0.95;
+    font-size: 16px;
+}
+
+/* ============================================ */
+/* MAIN & SECTION */
+/* ============================================ */
+main {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    color: #333;
+    font-size: 24px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+
+section h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* ============================================ */
+/* PROBLEM SECTION */
+/* ============================================ */
+.explanation {
+    background: #e7f3ff;
+    border-left: 4px solid #2196F3;
+    padding: 12px;
+    border-radius: 4px;
+    color: #0c5aa0;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.problem-demo {
+    margin-bottom: 25px;
+}
+
+.layout-wrong {
+    display: flex;
+    gap: 0;
+    width: 960px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+    background: #f5f5f5;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.sidebar-wrong,
+.content-wrong {
+    padding: 15px;
+    border: 1px solid #999;
+    background: white;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.sidebar-wrong {
+    width: 300px;
+    background: #ffebee;
+}
+
+.content-wrong {
+    width: 660px;
+    background: #fff3e0;
+}
+
+.sidebar-wrong strong,
+.content-wrong strong {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.sidebar-wrong p,
+.content-wrong p {
+    margin: 4px 0;
+    font-size: 12px;
+}
+
+.calc {
+    margin-top: 8px !important;
+    color: #e74c3c;
+    font-weight: 600;
+    background: #ffe0e0;
+    padding: 4px 6px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.error-note {
+    color: #e74c3c;
+    font-weight: 600;
+    background: #ffe0e0;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 15px 0 0 0;
+}
+
+.calculation-box {
+    background: #fff9e6;
+    border-left: 4px solid #ffc107;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.calculation-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.calculation-box li {
+    margin: 8px 0;
+    color: #555;
+}
+
+.highlight {
+    background: #fff3cd;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+    color: #856404;
+}
+
+.error {
+    color: #e74c3c;
+    font-weight: 600;
+    background: #ffe0e0;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* ============================================ */
+/* SOLUTION SECTIONS */
+/* ============================================ */
+.solution-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.solution1-demo,
+.solution2-demo {
+    margin-bottom: 20px;
+}
+
+.layout-right {
+    display: flex;
+    gap: 0;
+    width: 960px;
+    margin: 15px 0;
+    background: #f5f5f5;
+    padding: 10px;
+    border: 2px solid #27ae60;
+    border-radius: 4px;
+}
+
+.sidebar-right,
+.content-right,
+.ads-right {
+    padding: 15px;
+    border: 1px solid #27ae60;
+    background: white;
+    font-size: 13px;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.sidebar-right {
+    width: 250px;
+    background: #d4edda;
+}
+
+.content-right {
+    width: 500px;
+    background: #cfe2ff;
+}
+
+.ads-right {
+    width: 250px;
+    background: #e2e3e5;
+}
+
+.sidebar-right strong,
+.content-right strong,
+.ads-right strong {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.sidebar-right p,
+.content-right p,
+.ads-right p {
+    margin: 4px 0;
+    font-size: 12px;
+}
+
+.layout-adjust {
+    display: flex;
+    gap: 0;
+    width: 960px;
+    margin: 15px 0;
+    background: #f5f5f5;
+    padding: 10px;
+    border: 2px solid #27ae60;
+    border-radius: 4px;
+}
+
+.sidebar-adjust,
+.content-adjust,
+.ads-adjust {
+    padding: 15px;
+    border: 1px solid #27ae60;
+    background: white;
+    font-size: 13px;
+    line-height: 1.5;
+    /* NO box-sizing: border-box; */
+}
+
+.sidebar-adjust {
+    width: 208px;
+    background: #d4edda;
+}
+
+.content-adjust {
+    width: 428px;
+    background: #cfe2ff;
+}
+
+.ads-adjust {
+    width: 208px;
+    background: #e2e3e5;
+}
+
+.sidebar-adjust strong,
+.content-adjust strong,
+.ads-adjust strong {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.sidebar-adjust p,
+.content-adjust p,
+.ads-adjust p {
+    margin: 4px 0;
+    font-size: 12px;
+}
+
+.success-note {
+    color: #27ae60;
+    font-weight: 600;
+    background: #d4edda;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 15px 0 0 0;
+}
+
+/* ============================================ */
+/* CODE BOX */
+/* ============================================ */
+.code-box {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+.code-box h3 {
+    color: white;
+    margin: 0 0 15px 0;
+}
+
+.code-box pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.code-box code {
+    color: #ecf0f1;
+}
+
+/* ============================================ */
+/* PROS/CONS BOX */
+/* ============================================ */
+.pros-cons-box {
+    background: #e8f4f8;
+    border-left: 4px solid #3498db;
+    padding: 15px;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.pros-cons-box h3 {
+    color: #2980b9;
+    margin: 0 0 10px 0;
+}
+
+.pros-cons-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.pros-cons-box li {
+    margin: 6px 0;
+    color: #34495e;
+}
+
+/* ============================================ */
+/* COMPARISON TABLE */
+/* ============================================ */
+.comparison-section {
+    margin-bottom: 40px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.comparison-table thead {
+    background: #667eea;
+    color: white;
+}
+
+.comparison-table thead th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    border-bottom: 2px solid #667eea;
+}
+
+.comparison-table tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.comparison-table tbody tr:hover {
+    background: #f0f4ff;
+}
+
+.comparison-table strong {
+    color: #333;
+}
+
+/* ============================================ */
+/* CONCLUSION BOX */
+/* ============================================ */
+.conclusion-box {
+    background: #d4edda;
+    border: 2px solid #27ae60;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.conclusion-box h3 {
+    color: #1e5631;
+    margin: 0 0 10px 0;
+}
+
+.conclusion-box p {
+    color: #1e5631;
+    margin: 8px 0;
+}
+
+.conclusion-box pre {
+    background: white;
+    padding: 12px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    overflow-x: auto;
+}
+
+.conclusion-box code {
+    color: #333;
+}
+
+/* ============================================ */
+/* TIPS SECTION */
+/* ============================================ */
+.tips-section {
+    margin-bottom: 40px;
+}
+
+.tip-item {
+    background: #f5f5f5;
+    border-left: 4px solid #667eea;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.tip-item strong {
+    color: #667eea;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.tip-item p {
+    margin: 0 0 10px 0;
+    color: #555;
+}
+
+.tip-item ul {
+    margin: 8px 0;
+    padding-left: 20px;
+}
+
+.tip-item li {
+    margin: 4px 0;
+    color: #555;
+}
+
+.tip-item pre {
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    overflow-x: auto;
+    margin-top: 8px;
+}
+
+.tip-item code {
+    color: #333;
+}
+
+/* ============================================ */
+/* FOOTER */
+/* ============================================ */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+footer p {
+    margin: 0;
+    color: #667eea;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* ============================================ */
+/* RESPONSIVE */
+/* ============================================ */
+@media (max-width: 1000px) {
+    .layout-wrong,
+    .layout-right,
+    .layout-adjust {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .sidebar-wrong,
+    .sidebar-right,
+    .sidebar-adjust,
+    .content-wrong,
+    .content-right,
+    .content-adjust,
+    .ads-right,
+    .ads-adjust {
+        width: auto !important;
+        flex: 1;
+        min-width: 150px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    section h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-wrapper {
+        padding: 10px;
+    }
+
+    header {
+        padding: 25px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .comparison-table {
+        font-size: 12px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 10px;
+    }
+
+    .code-box {
+        font-size: 11px;
+    }
+}
