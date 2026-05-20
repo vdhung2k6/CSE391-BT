@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Test - Câu A2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .form-group .case-info {
+            font-size: 12px;
+            color: #999;
+            font-style: italic;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.3);
+        }
+
+        .form-group input:invalid {
+            border-color: #dc3545;
+            box-shadow: 0 0 5px rgba(220,53,69,0.3);
+        }
+
+        .form-group input:valid {
+            border-color: #28a745;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button[type="submit"] {
+            background: #007bff;
+            color: white;
+        }
+
+        button[type="submit"]:hover {
+            background: #0056b3;
+        }
+
+        button[type="reset"] {
+            background: #6c757d;
+            color: white;
+        }
+
+        button[type="reset"]:hover {
+            background: #545b62;
+        }
+
+        .note {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Kiểm tra Validation Attributes - Câu A2</h1>
+        <p class="description">
+            Hãy nhập dữ liệu theo hướng dẫn dưới đây, rồi bấm "Submit" để thấy thông báo validation của trình duyệt.
+        </p>
+
+        <form action="#" method="POST">
+            <!-- Trường hợp 1 -->
+            <div class="form-group">
+                <label for="case1">Trường hợp 1: Text Required (để trống)</label>
+                <p class="case-info">Để trống input này rồi submit →  Xem kết quả validation</p>
+                <input 
+                    type="text" 
+                    id="case1" 
+                    name="case1"
+                    required 
+                    value=""
+                    placeholder="Hãy để trống"
+                >
+            </div>
+
+            <!-- Trường hợp 2 -->
+            <div class="form-group">
+                <label for="case2">Trường hợp 2: Email Invalid ("abc")</label>
+                <p class="case-info">Nhập "abc" (không có @) rồi submit → Xem lỗi email</p>
+                <input 
+                    type="email" 
+                    id="case2" 
+                    name="case2"
+                    value="abc"
+                    placeholder="Nhập email hợp lệ"
+                >
+            </div>
+
+            <!-- Trường hợp 3 -->
+            <div class="form-group">
+                <label for="case3">Trường hợp 3: Number Out of Range (15)</label>
+                <p class="case-info">Giá trị là 15 nhưng max="10" → Submit để xem lỗi</p>
+                <input 
+                    type="number" 
+                    id="case3" 
+                    name="case3"
+                    min="1" 
+                    max="10" 
+                    value="15"
+                    placeholder="Nhập số từ 1 đến 10"
+                >
+            </div>
+
+            <!-- Trường hợp 4 -->
+            <div class="form-group">
+                <label for="case4">Trường hợp 4: Pattern Mismatch ([0-9]{'{10}'})</label>
+                <p class="case-info">Pattern yêu cầu 10 chữ số, nhập "abc123" (6 ký tự, có chữ)</p>
+                <input 
+                    type="text" 
+                    id="case4" 
+                    name="case4"
+                    pattern="[0-9]{10}" 
+                    value="abc123"
+                    placeholder="Nhập 10 chữ số (VD: 0901234567)"
+                    title="Vui lòng nhập chính xác 10 chữ số"
+                >
+            </div>
+
+            <!-- Trường hợp 5 -->
+            <div class="form-group">
+                <label for="case5">Trường hợp 5: Password Too Short (minlength="8")</label>
+                <p class="case-info">Minlength="8" nhưng nhập "123" (3 ký tự)</p>
+                <input 
+                    type="password" 
+                    id="case5" 
+                    name="case5"
+                    minlength="8" 
+                    value="123"
+                    placeholder="Nhập ít nhất 8 ký tự"
+                >
+            </div>
+
+            <div class="note">
+                <strong>💡 Hướng dẫn:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Mỗi input đều có dữ liệu không hợp lệ</li>
+                    <li>Bấm <strong>"Submit"</strong> → trình duyệt sẽ hiển thị thông báo validation</li>
+                    <li>Chụp màn hình kết quả và so sánh với dự đoán trong answers.md</li>
+                    <li>HTML5 validation chạy ở Frontend, không gửi form lên server</li>
+                </ul>
+            </div>
+
+            <div class="button-group">
+                <button type="submit">✅ Submit & Kiểm tra Validation</button>
+                <button type="reset">🔄 Đặt lại</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

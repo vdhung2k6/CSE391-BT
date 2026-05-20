@@ -4,4 +4,4 @@
 **Mã sinh viên**: 2451170899
 
 # TIẾN ĐỘ: 
-**Đã hoàn thành hết trừ video**
+**Đã hoàn thành**
