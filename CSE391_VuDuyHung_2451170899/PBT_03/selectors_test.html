@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors Test - Câu A2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .info-box h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .info-box p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* ============================================ */
+        /* MAIN CONTENT DEMO */
+        /* ============================================ */
+
+        #app {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        header.top-bar.dark {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            background: white;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        main {
+            padding: 40px;
+        }
+
+        article.product {
+            border: 2px solid #e0e0e0;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        article.product:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102,126,234,0.2);
+        }
+
+        article.product.featured {
+            background: #f0f4ff;
+            border-color: #667eea;
+        }
+
+        article.product h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        article.product .price {
+            color: #e74c3c;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        article.product p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* SELECTOR HIGHLIGHT STYLES */
+        .selector-demo {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .selector-demo h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .selector-group {
+            margin-bottom: 15px;
+            padding: 12px;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .selector-group strong {
+            color: #333;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+
+        .selector-group span {
+            color: #667eea;
+            font-weight: 600;
+            display: block;
+            margin-top: 8px;
+            padding: 8px;
+            background: #f0f4ff;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        /* HIGHLIGHT SELECTED ELEMENTS */
+        h1 {
+            outline: 3px dashed #4CAF50;
+            outline-offset: 2px;
+        }
+
+        .price {
+            outline: 3px dashed #2196F3;
+            outline-offset: 1px;
+        }
+
+        #app header {
+            outline: 3px dashed #FF9800;
+            outline-offset: 2px;
+        }
+
+        nav a:first-child {
+            outline: 3px dashed #F44336;
+            outline-offset: 2px;
+        }
+
+        .product.featured h2 {
+            outline: 3px dashed #9C27B0;
+            outline-offset: 2px;
+        }
+
+        article > p {
+            outline: 2px dashed #00BCD4;
+            outline-offset: 1px;
+        }
+
+        a[href="/"] {
+            outline: 3px dashed #FFEB3B;
+            outline-offset: 2px;
+        }
+
+        .top-bar.dark h1 {
+            outline: 3px dashed #8BC34A;
+            outline-offset: 2px;
+        }
+
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .legend-item {
+            padding: 12px;
+            background: white;
+            border-left: 4px solid;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .legend-item strong {
+            display: block;
+            margin-bottom: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .legend-item:nth-child(1) { border-color: #4CAF50; }
+        .legend-item:nth-child(2) { border-color: #2196F3; }
+        .legend-item:nth-child(3) { border-color: #FF9800; }
+        .legend-item:nth-child(4) { border-color: #F44336; }
+        .legend-item:nth-child(5) { border-color: #9C27B0; }
+        .legend-item:nth-child(6) { border-color: #00BCD4; }
+        .legend-item:nth-child(7) { border-color: #FFEB3B; background: #FFFACD; }
+        .legend-item:nth-child(8) { border-color: #8BC34A; }
+
+        @media (max-width: 768px) {
+            .legend {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="info-box">
+            <h2>📋 CSS Selectors Test - Câu A2</h2>
+            <p>
+                Mỗi selector được highlight bằng một màu khác nhau. Chú ý các dòng chứa border dashed 
+                và kiểm tra xem element được chọn có đúng với dự đoán của bạn không.
+            </p>
+        </div>
+
+        <!-- DEMO HTML CONTENT -->
+        <div id="app">
+            <header class="top-bar dark">
+                <h1>ShopTLU</h1>
+                <nav>
+                    <a href="/" class="active">Home</a>
+                    <a href="/products">Products</a>
+                    <a href="/about">About</a>
+                </nav>
+            </header>
+            <main>
+                <article class="product">
+                    <h2>iPhone 16</h2>
+                    <p class="price">25.990.000đ</p>
+                    <p>Mô tả sản phẩm...</p>
+                </article>
+                <article class="product featured">
+                    <h2>MacBook Pro</h2>
+                    <p class="price">45.990.000đ</p>
+                    <p>Mô tả sản phẩm...</p>
+                </article>
+            </main>
+        </div>
+
+        <!-- SELECTOR DEMO & RESULTS -->
+        <div class="info-box" style="margin-top: 25px;">
+            <h2>🎯 Kết quả dự đoán selectors:</h2>
+            
+            <div class="selector-demo">
+                <h3>1. Selector: h1</h3>
+                <div class="selector-group">
+                    <strong>Kỳ vọng chọn:</strong>
+                    <span>→ &lt;h1&gt;ShopTLU&lt;/h1&gt;</span>
+                </div>
+            </div>
+
+            <div class="selector-demo">
+                <h3>2. Selector: .price</h3>
+                <div class="selector-group">
+                    <strong>Kỳ vọng chọn:</strong>
+                    <span>→ &lt;p class="price"&gt;25.990.000đ&lt;/p&gt;</span>
+                    <span style="margin-top: 8px;">→ &lt;p class="price"&gt;45.990.000đ&lt;/p&gt;</span>
+                </div>
+            </div>
+
+            <div class="selector-demo">
+                <h3>3. Selector: #app header</h3>
+                <div class="selector-group">
+                    <strong>Kỳ vọng chọn:</strong>
+                    <span>→ &lt;header class="top-bar dark"&gt;...&lt;/header&gt;</span>
+                </div>
+            </div>
+
+            <div class="selector-demo">
+                <h3>4. Selector: nav a:first-child</h3>
+                <div class="selector-group">
+                    <strong>Kỳ vọng chọn:</strong>
+                    <span>→ &lt;a href="/" class="active"&gt;Home&lt;/a&gt;</span>
+                </div>
+            </div>
+
+            <div class="selector-demo">
+                <h3>5. Selector: .product.featured h2</h3>
+                <div class="selector-group">
+                    <strong>Kỳ vọng chọn:</strong>
+                    <span>→ &lt;h2&gt;MacBook Pro&lt;/h2&gt;</span>
+                </div>
+            </div>
+
+            <div class="selector-demo">
+                <h3>6. Selector: article &gt; p</h3>
+                <div class="selector-group">
+                    <strong>Kỳ vọng chọn (4 phần tử):</strong>
+                    <span>→ Tất cả &lt;p&gt; là con trực tiếp của &lt;article&gt;</span>
+                </div>
+            </div>
+
+            <div class="selector-demo">
+                <h3>7. Selector: a[href="/"]</h3>
+                <div class="selector-group">
+                    <strong>Kỳ vọng chọn:</strong>
+                    <span>→ &lt;a href="/" class="active"&gt;Home&lt;/a&gt;</span>
+                </div>
+            </div>
+
+            <div class="selector-demo">
+                <h3>8. Selector: .top-bar.dark h1</h3>
+                <div class="selector-group">
+                    <strong>Kỳ vọng chọn:</strong>
+                    <span>→ &lt;h1&gt;ShopTLU&lt;/h1&gt;</span>
+                </div>
+            </div>
+
+            <!-- LEGEND -->
+            <div class="legend">
+                <div class="legend-item">
+                    <strong>h1</strong>
+                    Highlight xanh lá
+                </div>
+                <div class="legend-item">
+                    <strong>.price</strong>
+                    Highlight xanh dương
+                </div>
+                <div class="legend-item">
+                    <strong>#app header</strong>
+                    Highlight cam
+                </div>
+                <div class="legend-item">
+                    <strong>nav a:first-child</strong>
+                    Highlight đỏ
+                </div>
+                <div class="legend-item">
+                    <strong>.product.featured h2</strong>
+                    Highlight tím
+                </div>
+                <div class="legend-item">
+                    <strong>article > p</strong>
+                    Highlight cyan
+                </div>
+                <div class="legend-item">
+                    <strong>a[href="/"]</strong>
+                    Highlight vàng
+                </div>
+                <div class="legend-item">
+                    <strong>.top-bar.dark h1</strong>
+                    Highlight xanh lá nhạt
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin-top: 25px;">
+            <h2>💡 Cách sử dụng file này:</h2>
+            <p style="margin-bottom: 10px;">
+                1. Mở DevTools (F12) → Dùng Inspector (tìm kiếm các element có outline)
+            </p>
+            <p style="margin-bottom: 10px;">
+                2. Mỗi element có border dashed - đó là các selector đang target nó
+            </p>
+            <p>
+                3. So sánh với dự đoán của bạn trong answers.md → Kiểm chứng kết quả
+            </p>
+        </div>
+    </div>
+</body>
+</html>
