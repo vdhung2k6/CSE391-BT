@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning Playground - PBT 04</title>
+    <link rel="stylesheet" href="positioning.css">
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">🏢 MyShop</div>
+            <nav class="nav">
+                <a href="#home">Trang chủ</a>
+                <a href="#products">Sản phẩm</a>
+                <a href="#about">Về chúng tôi</a>
+                <a href="#contact">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-layout">
+        <!-- Sticky Sidebar -->
+        <aside class="sidebar">
+            <h3>📋 Danh mục</h3>
+            <ul>
+                <li><a href="#cat1">Điện tử</a></li>
+                <li><a href="#cat2">Thời trang</a></li>
+                <li><a href="#cat3">Sách</a></li>
+                <li><a href="#cat4">Đồ gia dụng</a></li>
+                <li><a href="#cat5">Thể thao</a></li>
+            </ul>
+
+            <h3>🔍 Lọc giá</h3>
+            <div class="filter-group">
+                <label><input type="checkbox"> Dưới 100K</label>
+                <label><input type="checkbox"> 100K - 500K</label>
+                <label><input type="checkbox"> 500K - 1M</label>
+                <label><input type="checkbox"> Trên 1M</label>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <section class="hero">
+                <h1>Chào mừng đến MyShop</h1>
+                <p>Khám phá hàng ngàn sản phẩm chất lượng cao với giá tốt nhất</p>
+            </section>
+
+            <section class="products">
+                <h2>🛍️ Sản phẩm nổi bật</h2>
+                
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="card-image">📱</div>
+                    <h3>Smartphone X100</h3>
+                    <p class="price">8,990,000 ₫</p>
+                    <div class="badge">HOT</div>
+                    <button class="btn-buy">Mua ngay</button>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <div class="card-image">⌚</div>
+                    <h3>Smartwatch Pro</h3>
+                    <p class="price">2,490,000 ₫</p>
+                    <div class="badge">HOT</div>
+                    <button class="btn-buy">Mua ngay</button>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="card-image">🎧</div>
+                    <h3>Wireless Headphones</h3>
+                    <p class="price">1,990,000 ₫</p>
+                    <button class="btn-buy">Mua ngay</button>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="card-image">💻</div>
+                    <h3>Laptop UltraBook</h3>
+                    <p class="price">12,990,000 ₫</p>
+                    <div class="badge">HOT</div>
+                    <button class="btn-buy">Mua ngay</button>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="product-card">
+                    <div class="card-image">📷</div>
+                    <h3>Digital Camera 4K</h3>
+                    <p class="price">5,990,000 ₫</p>
+                    <button class="btn-buy">Mua ngay</button>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="product-card">
+                    <div class="card-image">🖥️</div>
+                    <h3>Curved Monitor 32"</h3>
+                    <p class="price">4,490,000 ₫</p>
+                    <button class="btn-buy">Mua ngay</button>
+                </div>
+            </section>
+
+            <!-- Scroll Content -->
+            <section class="scroll-content">
+                <h2>📖 Thông tin thêm</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- Scroll to Top Button (Fixed) -->
+    <button class="scroll-to-top" id="scrollToTopBtn" title="Lên đầu">↑</button>
+</body>
+</html>
