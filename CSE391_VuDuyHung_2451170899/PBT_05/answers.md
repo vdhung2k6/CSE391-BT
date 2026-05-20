@@ -560,3 +560,7 @@ footer {
 - ✅ Flexible layout: grid + flex
 - ✅ Image responsive: `max-width: 100%`
 - ✅ Touch-friendly: padding lớn trên mobile
+
+### Câu B3 — Lệnh biên dịch SCSS
+Lệnh dùng để biên dịch từ SCSS sang CSS:
+`sass scss/style.scss scss/style.css`
