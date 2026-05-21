@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Landing Page - Bootstrap 5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Tùy chỉnh chiều cao ảnh để hiển thị đẹp hơn */
+        .carousel-item img { height: 400px; object-fit: cover; }
+        .card-img-top { height: 200px; object-fit: cover; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">ShopBrand</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Khuyến mãi</a></li>
+                </ul>
+                <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="Tìm kiếm...">
+                    <button class="btn btn-outline-light" type="submit">Tìm</button>
+                </form>
+                <button class="btn btn-warning">🛒 Giỏ hàng</button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://placehold.co/1200x400/3498db/ffffff?text=Banner+Khuyen+Mai" class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Mùa hè rực rỡ</h5>
+                    <p>Giảm giá lên đến 50% cho tất cả sản phẩm thời trang.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://placehold.co/1200x400/e74c3c/ffffff?text=Bo+Suu+Tap+Moi" class="d-block w-100" alt="Slide 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Bộ sưu tập Thu Đông</h5>
+                    <p>Phong cách thời thượng, dẫn đầu xu hướng.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://placehold.co/1200x400/2ecc71/ffffff?text=Mien+Phi+Van+Chuyen" class="d-block w-100" alt="Slide 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Freeship toàn quốc</h5>
+                    <p>Áp dụng cho mọi đơn hàng từ 500k.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Sản Phẩm Nổi Bật</h2>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 position-relative shadow-sm">
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Sale</span>
+                    <img src="https://placehold.co/400x300/e0e0e0/666666?text=Sản+phẩm+1" class="card-img-top" alt="Product">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Áo Thun Cao Cấp</h5>
+                        <p class="card-text text-danger fw-bold">250.000đ <del class="text-muted small">350.000đ</del></p>
+                        <button class="btn btn-outline-primary mt-auto" data-bs-toggle="modal" data-bs-target="#productModal">Xem nhanh</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://placehold.co/400x300/e0e0e0/666666?text=Sản+phẩm+2" class="card-img-top" alt="Product">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Quần Jeans Nam</h5>
+                        <p class="card-text text-primary fw-bold">450.000đ</p>
+                        <button class="btn btn-outline-primary mt-auto" data-bs-toggle="modal" data-bs-target="#productModal">Xem nhanh</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 position-relative shadow-sm">
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Sale</span>
+                    <img src="https://placehold.co/400x300/e0e0e0/666666?text=Sản+phẩm+3" class="card-img-top" alt="Product">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Giày Thể Thao</h5>
+                        <p class="card-text text-danger fw-bold">600.000đ <del class="text-muted small">800.000đ</del></p>
+                        <button class="btn btn-outline-primary mt-auto" data-bs-toggle="modal" data-bs-target="#productModal">Xem nhanh</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://placehold.co/400x300/e0e0e0/666666?text=Sản+phẩm+4" class="card-img-top" alt="Product">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Balo Thời Trang</h5>
+                        <p class="card-text text-primary fw-bold">350.000đ</p>
+                        <button class="btn btn-outline-primary mt-auto" data-bs-toggle="modal" data-bs-target="#productModal">Xem nhanh</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Chi tiết sản phẩm</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://placehold.co/400x400/e0e0e0/666666?text=Ảnh+Chi+Tiết" class="img-fluid rounded" alt="Detail">
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <h4>Tên Sản Phẩm Demo</h4>
+                            <h3 class="text-danger">250.000đ</h3>
+                            <p class="mt-3">Mô tả chi tiết sản phẩm. Chất liệu cao cấp, thoáng mát, phù hợp cho mọi hoạt động hàng ngày.</p>
+                            <button class="btn btn-primary w-100 mt-4">Thêm vào giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <h5>ShopBrand</h5>
+                    <p class="small text-muted">Hệ thống bán lẻ thời trang hàng đầu với hàng ngàn mẫu mã đa dạng.</p>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Chăm sóc khách hàng</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-muted text-decoration-none">Trung tâm trợ giúp</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Chính sách đổi trả</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Về chúng tôi</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-muted text-decoration-none">Giới thiệu</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Tuyển dụng</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Điều khoản</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Liên hệ</h5>
+                    <p class="small text-muted mb-1">📍 123 Đường ABC, Quận 1, TP.HCM</p>
+                    <p class="small text-muted mb-1">📞 1900 1234</p>
+                    <p class="small text-muted">✉️ cskh@shopbrand.vn</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
