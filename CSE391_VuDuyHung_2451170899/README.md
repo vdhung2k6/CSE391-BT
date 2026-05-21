@@ -4,4 +4,4 @@
 **Mã sinh viên**: 2451170899
 
 # TIẾN ĐỘ: 
-**Đã hoàn thành hết PBT_06_CSS_Frameworks**
+**Đã hoàn thành hết PBT_07_JS_Basics**
