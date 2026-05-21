@@ -22,3 +22,24 @@
 - Destructuring: `name="iPhone 16", price=25990000, ram=8, color="Titan"`. `specs` sẽ báo lỗi (ReferenceError) vì đã được destructure bên trong.
 - Spread: `updated.price` là 23990000. `product.price` không đổi (immutable update).
 - Copy: `product.specs.ram` trở thành 16 (vì spread chỉ copy shallow, đối tượng `specs` vẫn tham chiếu đến cùng ô nhớ).
+
+---
+
+## PHẦN C — SUY LUẬN
+
+### C1 (Refactor code)
+const processOrders = (orders) => 
+    orders.filter(o => o.status === "completed" && o.total > 100000)
+          .map(({ id, customer, total }) => ({ id, customer, total, discount: total * 0.1, finalTotal: total * 0.9 }))
+          .sort((a, b) => b.finalTotal - a.finalTotal);
+
+### C2 (Mini Array Implementation)
+const miniArray = {
+    map: (arr, fn) => arr.reduce((acc, curr, i) => [...acc, fn(curr, i, arr)], []),
+    filter: (arr, fn) => arr.reduce((acc, curr, i) => fn(curr, i, arr) ? [...acc, curr] : acc, []),
+    reduce: (arr, fn, init) => {
+        let acc = init !== undefined ? init : arr[0];
+        for (let i = init !== undefined ? 0 : 1; i < arr.length; i++) acc = fn(acc, arr[i], i, arr);
+        return acc;
+    }
+};

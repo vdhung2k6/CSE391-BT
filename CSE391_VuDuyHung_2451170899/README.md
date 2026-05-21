@@ -4,4 +4,4 @@
 **Mã sinh viên**: 2451170899
 
 # TIẾN ĐỘ: 
-**Đã hoàn thành hết PBT_07_JS_Basics**
+**Đã hoàn thành hết PBT_08_JS_Functions_Arrays**
