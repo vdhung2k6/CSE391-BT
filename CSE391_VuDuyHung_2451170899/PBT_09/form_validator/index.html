@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="regForm">
+        <div><input type="text" id="name" placeholder="Tên (2-50 ký tự)"> <span id="nameMsg"></span></div>
+        <div><input type="email" id="email" placeholder="Email"> <span id="emailMsg"></span></div>
+        <div>
+            <input type="password" id="password" placeholder="Password">
+            <div id="strengthBar" style="height:5px; width:0; background:red;"></div>
+        </div>
+        <div><input type="password" id="confirmPassword" placeholder="Nhập lại password"></div>
+        <div><input type="text" id="phone" placeholder="Phone (0901-234-567)"></div>
+        <button type="submit" id="submitBtn" disabled>Đăng ký</button>
+    </form>
+    <script src="app.js"></script>
+</body>
+</html>
