@@ -1,0 +1,6 @@
+body { font-family: sans-serif; transition: background 0.3s; }
+.dark-mode { background: #333; color: white; }
+.hidden { display: none; }
+#productGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 20px; }
+.card { border: 1px solid #ccc; padding: 10px; cursor: pointer; }
+.modal-content { position: fixed; top: 20%; left: 30%; width: 40%; background: white; color: black; padding: 20px; }

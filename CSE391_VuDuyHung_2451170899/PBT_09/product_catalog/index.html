@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Catalog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <button id="darkModeToggle">Toggle Dark Mode</button>
+        <input type="text" id="searchInput" placeholder="Search products...">
+        <select id="sortSelect">
+            <option value="default">Sort by</option>
+            <option value="priceAsc">Price Asc</option>
+            <option value="priceDesc">Price Desc</option>
+            <option value="name">Name A-Z</option>
+            <option value="rating">Rating</option>
+        </select>
+        <div id="cartBadge">🛒 <span id="cartCount">0</span></div>
+    </header>
+
+    <div id="categoryFilter">
+        <button data-category="all">All</button>
+        <button data-category="phone">Phones</button>
+        <button data-category="laptop">Laptops</button>
+        <button data-category="tablet">Tablets</button>
+        <button data-category="accessory">Accessories</button>
+    </div>
+
+    <main id="productGrid"></main>
+
+    <div id="modal" class="hidden">
+        <div class="modal-content">
+            <span id="closeModal">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
