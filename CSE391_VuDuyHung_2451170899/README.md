@@ -28,8 +28,8 @@ CSE391_VuDuyHung_2451170899/
 
 ## 📋 Danh sách bài tập
 
-| STT | Thư mục | Nội dung | Trạng thái |
-|:---:|:---:|:---:|
+| STT | Thư mục | Nội dung chính | Trạng thái |
+|:---:|:---:|:---:|:---:|
 | 01 | [PBT_01](./PBT_01/) | HTML5 FUNDAMENTALS | Hoàn thành |
 | 02 | [PBT_02](./PBT_02/) | HTML5 FORMS & MEDIA | Hoàn thành |
 | 03 | [PBT_03](./PBT_03/) | CSS CORE | Hoàn thành |
